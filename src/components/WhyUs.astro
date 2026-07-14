@@ -1,0 +1,60 @@
+---
+const features = [
+  {
+    titulo: 'Información directa al punto',
+    descripcion: 'Conocé nuestros servicios exactos sin buscar entre meses de publicaciones en redes.',
+  },
+  {
+    titulo: 'Contacto sin depender de algoritmos',
+    descripcion: 'Un botón te lleva directo a WhatsApp para agendar, sin perder mensajes en bandejas ocultas.',
+  },
+  {
+    titulo: 'Confianza y formalidad',
+    descripcion: 'Un espacio profesional dedicado exclusivamente a cuidar tu salud dental y privacidad.',
+  },
+];
+---
+
+<section class="bg-bg-alt py-24">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <div class="grid items-center gap-12 md:grid-cols-1 lg:grid-cols-2">
+      <div>
+        <h2 class="mb-6 font-heading text-4xl">Tu información clara, sin distracciones</h2>
+        <p class="mb-8 text-lg font-medium text-text-main">
+          Creamos este espacio pensando en tu tiempo y comodidad para agendar tu próxima cita.
+        </p>
+
+        <ul class="space-y-6">
+          {
+            features.map((feature) => (
+              <li class="flex items-start gap-4">
+                <div class="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-primary">
+                  <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 stroke-white stroke-[3]" fill="none">
+                    <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="mb-1 font-heading text-lg">{feature.titulo}</h4>
+                  <p class="text-text-sec">{feature.descripcion}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="rounded-lg bg-brand-dark p-10 text-white">
+          <div class="mb-4 font-heading text-5xl text-white/30">"</div>
+          <p class="mb-6 font-heading text-lg italic">
+            Nuestra prioridad es garantizar que tu salud bucal esté en las mejores manos, desde la primera consulta hasta el resultado final.
+          </p>
+          <div>
+            <h4 class="font-body">Equipo profesional</h4>
+            <p class="text-sm text-white/70">Atención personalizada</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

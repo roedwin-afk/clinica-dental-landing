@@ -1,0 +1,66 @@
+---
+interface Props {
+  whatsappNumber?: string; // formato: 503XXXXXXXX, sin + ni espacios
+  whatsappMessage?: string;
+}
+
+const {
+  whatsappNumber = '50300000000', // PLACEHOLDER — reemplazar con el número real del cliente
+  whatsappMessage = 'Hola, quisiera agendar una cita.',
+} = Astro.props;
+
+const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+const facts = [
+  {
+    icon: 'M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0',
+    titulo: 'Ubicación',
+    texto: 'San Miguel, El Salvador',
+  },
+  {
+    icon: 'M12 6v6l4 2',
+    titulo: 'Horario',
+    texto: 'Lunes a Sábado, 8am - 5pm',
+  },
+  {
+    icon: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z',
+    titulo: 'Contacto directo',
+    texto: 'Consultas por WhatsApp',
+  },
+];
+---
+
+<section id="contacto" class="bg-brand-dark py-16 text-center text-white md:py-24">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <h2 class="mb-4 font-heading text-3xl md:text-4xl">¿Listo para cuidar de tu sonrisa?</h2>
+    <p class="mx-auto mb-8 max-w-[600px] text-white/80">
+      Agenda tu evaluación inicial hoy mismo. Te atendemos de manera personalizada para resolver todas tus dudas.
+    </p>
+
+    
+    <a  href={whatsappHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 font-semibold text-white shadow-[0_4px_12px_rgba(255,107,74,0.3)] transition hover:-translate-y-0.5 hover:bg-accent-hover md:w-auto"
+    >
+      <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current">
+        <path d="M12.01 2.013c-5.503 0-9.975 4.47-9.975 9.972 0 1.761.464 3.483 1.345 5.002L2 22.01l5.148-1.35c1.474.808 3.137 1.233 4.862 1.233 5.503 0 9.975-4.47 9.975-9.971 0-5.503-4.472-9.972-9.975-9.972v-.036z" />
+      </svg>
+      Escríbenos al WhatsApp
+    </a>
+
+    <div class="mt-10 grid grid-cols-1 gap-8 pt-10 md:grid-cols-3">
+      {
+        facts.map((fact) => (
+          <div>
+            <svg viewBox="0 0 24 24" class="mx-auto mb-2 h-6 w-6 stroke-white" fill="none">
+              <path d={fact.icon} stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <h4 class="mb-1">{fact.titulo}</h4>
+            <p class="text-sm text-white/70">{fact.texto}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

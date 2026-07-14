@@ -1,0 +1,46 @@
+---
+const servicios = [
+  {
+    titulo: 'Odontología General',
+    descripcion: 'Evaluación diagnóstica, prevención y limpieza profunda para toda la familia.',
+    icon: 'M12 2C8.68629 2 6 4.68629 6 8C6 11.5 8 13.5 8 16C8 18.5 9 22 12 22C15 22 16 18.5 16 16C16 13.5 18 11.5 18 8C18 4.68629 15.3137 2 12 2Z M12 12V16',
+  },
+  {
+    titulo: 'Ortodoncia',
+    descripcion: 'Alineamos tu sonrisa y mejoramos tu mordida con tratamientos modernos y efectivos.',
+    icon: 'M4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12 M4 12H20',
+  },
+  {
+    titulo: 'Blanqueamiento',
+    descripcion: 'Recupera el brillo natural de tu sonrisa, sin dañar tu esmalte y con resultados rápidos.',
+    icon: 'M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z',
+  },
+];
+---
+
+<section id="servicios" class="bg-bg-main py-24 text-center">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <div class="mb-16">
+      <h2 class="mb-4 font-heading text-4xl">Cuidamos cada detalle de tu sonrisa</h2>
+      <p class="mx-auto max-w-[600px] text-text-sec">
+        Tratamientos integrales con equipos modernos, pensados para tu comodidad en cada visita.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        servicios.map((servicio) => (
+          <div class="rounded-lg border border-border-color bg-white p-10 text-left transition hover:-translate-y-1 hover:border-brand-primary hover:shadow-md">
+            <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-bg-alt">
+              <svg viewBox="0 0 24 24" class="h-8 w-8 stroke-brand-primary stroke-[1.5]" fill="none">
+                <path d={servicio.icon} stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="mb-3 font-heading text-2xl">{servicio.titulo}</h3>
+            <p class="text-text-sec">{servicio.descripcion}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

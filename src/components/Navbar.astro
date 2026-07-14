@@ -1,0 +1,30 @@
+---
+interface Props {
+  brandName?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+}
+
+const {
+  brandName = 'Aqua Dental',
+  ctaHref = '#contacto',
+  ctaLabel = 'Agendar cita',
+} = Astro.props;
+---
+
+<nav class="sticky top-0 z-[100] border-b border-border-color bg-bg-main py-5">
+  <div class="mx-auto flex max-w-[1200px] items-center justify-between px-6">
+    <a href="#" class="flex items-center gap-2 font-heading text-2xl font-bold text-brand-primary">
+      <svg viewBox="0 0 24 24" class="h-7 w-7 fill-brand-primary">
+        <path d="M12 2C7.58172 2 4 5.58172 4 10C4 11.8919 4.65651 13.63 5.75338 15.006C5.75338 15.006 8.5 19 12 22C15.5 19 18.2466 15.006 18.2466 15.006C19.3435 13.63 20 11.8919 20 10C20 5.58172 16.4183 2 12 2ZM12 14C9.79086 14 8 12.2091 8 10C8 7.79086 9.79086 6 12 6C14.2091 6 16 7.79086 16 10C16 12.2091 14.2091 14 12 14Z" />
+      </svg>
+      {brandName}
+    </a>
+    
+    <a  href={ctaHref}
+      class="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 font-semibold text-white shadow-[0_4px_12px_rgba(255,107,74,0.3)] transition hover:-translate-y-0.5 hover:bg-accent-hover"
+    >
+      {ctaLabel}
+    </a>
+  </div>
+</nav>

@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-main: #F6FAF9;
+  --color-bg-alt: #EAF3F1;
+  --color-text-main: #0B2B2A;
+  --color-text-sec: #3E5A56;
+  --color-brand-primary: #0E7C7B;
+  --color-brand-dark: #0A5654;
+  --color-accent: #FF6B4A;
+  --color-accent-hover: #E85535;
+  --color-border-color: #D8E6E4;
+
+  --font-heading: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+
+  --radius-md: 12px;
+  --radius-lg: 24px;
+}
