@@ -5,8 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  // lo cambiás cuando tengas el dominio real del cliente
-  site: 'https://github.com/roedwin-afk',
+  site: 'https://roedwin-afk.github.io',
   base: '/clinica-dental-landing/',
 
   integrations: [sitemap()],

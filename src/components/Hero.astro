@@ -1,3 +1,17 @@
+---
+interface Props {
+  whatsappNumber?: string; // formato: 503XXXXXXXX, sin + ni espacios
+  whatsappMessage?: string;
+}
+
+const {
+  whatsappNumber = '50300000000', // PLACEHOLDER — reemplazar con el número real del cliente
+  whatsappMessage = 'Hola, quisiera agendar una cita.',
+} = Astro.props;
+
+const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+---
+
 <header class="bg-bg-main pt-20 md:pt-10">
   <div class="mx-auto max-w-[1200px] px-6">
     <div class="grid items-center gap-10 md:grid-cols-1 lg:grid-cols-2 text-center lg:text-left">
@@ -10,7 +24,7 @@
         </p>
         <div class="flex flex-wrap justify-center gap-4 lg:justify-start">
           
-          <a  href="#contacto"
+          <a  href={whatsappHref}
             class="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 font-semibold text-white shadow-[0_4px_12px_rgba(255,107,74,0.3)] transition hover:-translate-y-0.5 hover:bg-accent-hover"
           >
             Agenda por WhatsApp
